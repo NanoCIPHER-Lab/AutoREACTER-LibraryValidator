@@ -22,4 +22,6 @@ This repository does **not** perform polymer simulations — it is strictly a li
    https://github.com/NanoCIPHER-Lab/AutoREACTER  
 5. If the reaction runs successfully, open an issue in the same repository and attach all validated files. Including simulation files (e.g., LAMMPS input/output) is strongly encouraged.
 
+**https://colab.research.google.com/drive/1DEfe_0sZL604LmEGahb5vuUhEtSBu7-v?usp=sharing**
+
 We will review submissions and integrate approved functional groups and/or reactions into the main library.
