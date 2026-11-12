@@ -4,13 +4,7 @@ The following errors originate from running AutoREACTER with new functional grou
 
 Common Errors
 
-1. 'AutoREACTER.detectors.reactions_library.registry.ReactionLibraryValidationError: Reaction library validation failed:
-{reaction_name}: initiator atom maps 1 and 2 must belong to different reactant molecules.'
-    
-    This error indicates an incorrect assignment of IDs to atoms in the reaction SMARTS string in a reaction library Python file. All defined reactions have two initiator atoms, such that the LAMMPS 'fix bond/react' command is able to identify which atoms trigger the reaction. If atom IDs 1 and 2 are in the same molecule, the ReactionLibraryValidationError is thrown. 
-    Solution: in the AutoREACTER Library Validator Jupyter notebook, revisit the 'Define reaction definitions' cell. Edit the reaction SMARTS string such that the initiator atoms are in different molecules. 
-
-2. 'AutoREACTER.detectors.reaction_detector.EmptyReactionListError: No reaction instances found for the specified monomer combination'
+1. 'AutoREACTER.detectors.reaction_detector.EmptyReactionListError: No reaction instances found for the specified monomer combination'
 
     If the functional groups and/or reactions you would like to add to the AutoREACTER libraries require creating new Python files, this error is thrown as the registries do not include the new files. 
     Solution: resolving this error involves updating two registry files in your local directory: './AutoREACTER/detectors/functional_groups_library/registry.py' and './AutoREACTER/detectors/reactions_library/registry.py'. The 'registry.py' files are formatted similarly. In the beginning of both registry files, the functional groups or reactions in the new Python files need to be imported; they need to be added to the import section of the file. The format is,
@@ -25,7 +19,7 @@ Common Errors
 
     For the 'registry.py' file in the reaction library directory, the import error section needs to be updated with the new Python file, too. 
 
-3. 'AutoREACTER.reaction_preparation.ff_wrapper.ff_validator.ForceFieldValidationError:
+2. 'AutoREACTER.reaction_preparation.ff_wrapper.ff_validator.ForceFieldValidationError:
 All zeros in line {} of {} coeffs.' 
 
     As stated in the error statement, there are coefficients in the force field data file that are zero. In the case that the atoms are correctly typed, the 'pcff.frc' file needs to be edited such that the molecular structure is parameterized. The use of equivalent atom types is useful to obtaining non-zero coefficients. The PCFF file can be found in the following directory: './AutoREACTER/reaction_preparation/ff_wrapper/FF_files/pcff.frc'. If the atoms are incorrectly typed, the error is caused by LUNAR. Submit an issue to the LUNAR Github to resolve the error. 
